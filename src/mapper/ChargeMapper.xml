@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="mapper.ChargeMapper">
+	<select id="insertCharge" resultType="charge">
+		insert into charge VALUES(#{car_no},NOW())
+	</select>
+	
+	
+	<select id="selectChargeDiffTime" resultType="int">
+		select timestampdiff(minute,
+			(select start_time from member,charge 
+				where member.car_no = charge.car_no 
+				and	member.car_type=#{car_type}),
+			NOW())
+	</select>
+	
+	<select id="deleteCharge" resultType="charge">
+		delete from charge 
+		where car_no =  
+		(select car_no from member
+		where car_type=#{car_type})
+	</select>
+	
+	<select id="findChargeByCarNo" resultType="String">
+		select car_no from charge where car_no=#{car_no}
+	</select>
+	
+</mapper>

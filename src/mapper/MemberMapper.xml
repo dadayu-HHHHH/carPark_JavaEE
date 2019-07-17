@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="mapper.MemberMapper">
+	<select id="findMemberByCarNo" resultType="String">
+		select car_type from member where car_no =#{car_no}
+	</select>
+	
+	<select id="findMemberByCarType" resultType="int">
+		SELECT balance from member where car_type=#{car_type}
+	</select>
+	
+	<update id="updateMember" parameterType="Member">
+		update member set balance=#{balance} where car_type=#{car_type}
+	</update>
+	
+</mapper>
