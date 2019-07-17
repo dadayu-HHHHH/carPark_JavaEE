@@ -21,7 +21,7 @@ import mapper.ChargeMapper;
 
 public class ChargeImpl {
 	
-	
+	  
 
 	public void insertCharge(String car_no) throws IOException {
 		//加载配置文件
