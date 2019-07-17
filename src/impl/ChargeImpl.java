@@ -32,7 +32,7 @@ public class ChargeImpl {
 		ChargeMapper mapper = session.getMapper(ChargeMapper.class);
 		mapper.insertCharge(car_no);
 		session.close();
-		System.out.println("git test");
+		System.out.println("git test04");
 	}
 	
 	public int selectChargeDiffTime(String car_type) throws IOException {
